@@ -6,6 +6,7 @@ import { BsSearch } from 'react-icons/bs';
 import Displaytable from "../components/displaytable/displaytable";
 import Spinner from "../components/spinner/spinner";
 import Slideshow from "../components/slideshow/slideshow";
+import Footer from '../components/footer';
 
 
 export default function Home() {
@@ -32,23 +33,18 @@ export default function Home() {
     setLoading(false);
   };
 
+
   return (
     <div>
       <Head>
         <title>WHAT'S THE WEATHER?</title>
         <meta name="description" content="Engineered By Giovanni Paul- Sodipo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/public/favicon.ico" />
       </Head>
-      <div className='container'>
-        <div><h1 className="title">
-          What's the <span>Weather?</span>
-        </h1> 
-        </div>
-      
-      <div style={{ position: 'relative' }}>
-        <div className="bg-blue-100 py-2 overflow-hidden">
-          <div className="text-shadow-sm whitespace-nowrap">
+      <div className='main'>
+        <div style={{ position: 'relative' }}>
+          <div className="bg-blue-100 py-2 overflow-hidden text-shadow-sm whitespace-nowrap">
             {weatherJokes.map((joke, index) => (
               <span key={index} className="inline-block">
                 {joke}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -56,13 +52,32 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div style={{ position: 'fixed', zIndex: '0' }}>
+        <div className="flex justify-center items-center h-full">
+          <h1 className="title text-center">
+            What's the <span>Weather?</span>
+          </h1>
+        </div>
+        <div style={{ position: 'fixed', zIndex: '-20' }}>
           <Slideshow />
         </div>
-        <div className="relative flex flex-col justify-center items-center max-w-[500px] w-full m-auto pt-5 mt-10">
-          <form onSubmit={fetchWeather} className="flex justify-between bg-black bg-opacity-30 m-auto p-4 border border-gray-200 text-bold text-white text-2xl rounded-2xl">
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City" className="bg-transparent border-separate focus:outline-none mr-2 px-2 py-1 rounded-md placeholder:text-white" autoComplete="off" />
-            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" className="bg-transparent border-separate focus:outline-none mr-2 px-2 py-1 rounded-md placeholder:text-white" autoComplete="off" />
+        <div className="relative flex flex-col justify-center items-center max-w-[500px] w-full m-auto pt-2 mt-5">
+          <form onSubmit={fetchWeather} className="justify-between bg-black bg-opacity-30 m-auto p-4 border-gray-200 text-bold text-white text-2xl rounded-2xl">
+            <input id="city-input" type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City" className="bg-transparent border-separate focus:outline-none mr-2 px-2 py-1 rounded-md placeholder:text-white" autoComplete="off" list="cities" />
+            <datalist id="cities">
+              <option value="New York"></option>
+              <option value="Los Angeles"></option>
+              <option value="Chicago"></option>
+              <option value="Houston"></option>
+              <option value="Phoenix"></option>
+            </datalist>
+            <input id="country-input" type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" className="bg-transparent border-separate focus:outline-none mr-2 px-2 py-1 rounded-md placeholder:text-white" autoComplete="off" list="countries" />
+            <datalist id="countries">
+              <option value="USA"></option>
+              <option value="Canada"></option>
+              <option value="Mexico"></option>
+              <option value="Brazil"></option>
+              <option value="France"></option>
+            </datalist>
             <button type="submit" className="px-2 py-1 rounded-md bg-transparent hover:bg-green-600">
               <BsSearch />
             </button>
@@ -70,20 +85,12 @@ export default function Home() {
           {loading ? (
             <Spinner />
           ) : (
-            <div>
-              {weather.main && (
-                <Displaytable weather={weather} />
-              )}
-            </div>
+            weather.main && <Displaytable weather={weather} />
           )}
+
+          <Footer />
         </div>
       </div>
-
-      <footer>
-        <p>Engineered By <a href="https://www.linkedin.com/in/giovanni-paul-sodipo-968324183/" alt="profile">Giovanni Paul- Sodipo</a></p>
-      </footer>
-    </div>
-    
     </div>
   );
 }
