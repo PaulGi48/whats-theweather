@@ -12,7 +12,10 @@ yarn dev
 Then open [http://localhost:3000] with your browser to see the result.
 Start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+```
+
 # Notes
+
 - I was trying to use the Axios protocol to access my API but ended up using the Fetch standard to access my API.
 
 - Weather API provider : https://openweathermap.org/
