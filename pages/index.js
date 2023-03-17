@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Marquee from './Marquee';
+import Marquee from '../components/marquee/marquee.js';
 import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import Displaytable from "../components/displaytable/displaytable";
@@ -32,7 +32,6 @@ export default function Home() {
 
     setLoading(false);
   };
-
 
   return (
     <div>
