@@ -42,11 +42,11 @@ export default function Home() {
         <link rel="icon" href="/public/favicon.ico" />
       </Head>
       <div className='main'>
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'fixed' }}>
           <Marquee/>
         </div>
         <div className="flex justify-center items-center h-full">
-          <h1 className="title text-center">
+          <h1 className="title text-center pt-10">
             What's the <span>Weather?</span>
           </h1>
         </div>

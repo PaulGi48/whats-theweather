@@ -3,7 +3,7 @@
 @tailwind utilities;
 @keyframes marquee {
   0% {
-    transform: translateX(40);
+    transform: translateX(10);
   }
   100% {
     transform: translateX(-100%);
@@ -13,5 +13,5 @@
 .marquee {
   white-space: nowrap;
   box-sizing: border-box;
-  animation: marquee 20s linear infinite;
+  animation: marquee 180s linear infinite;
 };

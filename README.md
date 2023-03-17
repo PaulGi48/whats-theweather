@@ -18,6 +18,8 @@ Start editing the page by modifying `pages/index.js`. The page auto-updates as y
 
 - I was trying to use the Axios protocol to access my API but ended up using the Fetch standard to access my API.
 
+- The city is the first prompt so regardless of your country .... you can search for only the vity (and if you want to know the weather condition of a whole nation go ahead)
+
 - Weather API provider : https://openweathermap.org/
 
 - Slideshow Resources;
