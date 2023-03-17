@@ -30,7 +30,7 @@ function formatTemperature(temp) {
 function DisplayTable({ weather }) {
     return (
       <table className="mt-40 w-full">
-      <thead>
+      <thead className="text-white">
         <tr>
           <th className="text-left py-2 px-4">Name</th>
           <th className="text-left py-2 px-4">Country ID</th>

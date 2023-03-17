@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import weatherJokes from '../public/data/marquee.json';
+import Marquee from './Marquee';
 import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import Displaytable from "../components/displaytable/displaytable";
@@ -44,13 +44,7 @@ export default function Home() {
       </Head>
       <div className='main'>
         <div style={{ position: 'relative' }}>
-          <div className="bg-blue-100 py-2 overflow-hidden text-shadow-sm whitespace-nowrap">
-            {weatherJokes.map((joke, index) => (
-              <span key={index} className="inline-block">
-                {joke}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </span>
-            ))}
-          </div>
+          <Marquee/>
         </div>
         <div className="flex justify-center items-center h-full">
           <h1 className="title text-center">
